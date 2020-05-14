@@ -1,0 +1,56 @@
+:root {
+    --light0-clr:#fbf1c7;
+    --light1-clr:#ebdbb2;
+    --dark0-clr:#1d2021;
+    --dark1-clr:#282828;
+    --blue0-clr:#458588;
+}
+
+html{
+    background-color: var(--dark0-clr);
+    color: var(--light1-clr);
+}
+a{
+    text-decoration: underline;
+    color: var(--blue0-clr);
+    font-weight: bold;
+}
+a :visited{
+    text-decoration: underline;
+}
+
+.dark-theme{
+    background-color: var(--dark0-clr);
+    color: var(--light1-clr);
+}
+
+.dark-theme .text{
+    background-color: var(--dark0-clr);
+    color: var(--light1-clr);
+}
+
+.dark-theme .header{
+    display: flexbox;
+}
+
+.navbar{
+    padding: 20px 20px 20px 20px;
+}
+.navbar .navbar-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar .navbar-item{
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+.home-media{
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
