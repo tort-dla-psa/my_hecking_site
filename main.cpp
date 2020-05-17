@@ -3,6 +3,7 @@
 #include <Wt/WText.h>
 #include <Wt/WImage.h>
 #include <Wt/WStackedWidget.h>
+#include <Wt/WContainerWidget.h>
 #include <Wt/WMenu.h>
 #include <Wt/WNavigationBar.h>
 #include <filesystem>
@@ -12,7 +13,7 @@ auto get_random_file(const std::filesystem::path &path){
     auto count = std::count_if(std::filesystem::directory_iterator(path),
         std::filesystem::directory_iterator(),
         [](auto file){
-            return std::filesystem::is_regular_file(file);
+            return std::filesystem::is_regular_file(file) && !std::filesystem::is_directory(file);
         }
     );
     std::random_device rd;
@@ -71,6 +72,11 @@ public:
         auto gif = root()->addNew<Wt::WImage>(Wt::WLink(wt_path));
         gif->addStyleClass("home-media");
         this->header->addStyleClass("header");
+        this->header->setId("HDR");
+        std::string code = R"del(<iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=18878678/size=small/bgcol=333333/linkcol=2ebd35/artwork=none/transparent=true/" seamless><a href="http://novemthree.bandcamp.com/album/seeds-from-withered-stalks">Seeds From Withered Stalks by :novemthree:</a></iframe>)del";
+        auto player = root()->addNew<Wt::WText>(code, Wt::TextFormat::UnsafeXHTML);
+        player->setStyleClass("plr");
+        player->addStyleClass("home-media");
     }
 };
 

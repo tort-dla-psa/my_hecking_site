@@ -16,8 +16,14 @@ find_package(Boost COMPONENTS
 )
 
 add_executable(my_hecking_site main.cpp)
-target_link_libraries(my_hecking_site Wt::Wt Wt::HTTP Boost::system Boost::thread Boost::filesystem Boost::program_options stdc++fs)
-
+target_link_libraries(my_hecking_site
+                    Wt::Wt
+                    Wt::HTTP
+                    Boost::system
+                    Boost::thread
+                    Boost::filesystem
+                    Boost::program_options
+                    stdc++fs)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
